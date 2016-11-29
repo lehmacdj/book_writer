@@ -13,6 +13,8 @@ make book_writer
 
 ## Notes
 + This does not produce a cryptographically secure stream of words
++ The sample novel was line wrapped using vim after it was made. It does not
+  accurately represent what this program outputs
 
 ## Bugs
 + Doesn't wrap lines properly
