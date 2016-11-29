@@ -12,28 +12,8 @@ main = do
         strSentences = map stringOfSentence sentences
         text = concat $ intersperse " " strSentences
         novel = unwords $ take 50000 $ words text
-        wrapped = unlines $ concatMap (map trim . wrapLine 80) $ lines novel
     writeFile "novel.txt" $ novel
     return ()
-
--- This code for line wrapping is taken from:
--- http://moreindirection.blogspot.com/2010/08/blog-post.html
-trim :: String -> String
-trim = trimAndReverse . trimAndReverse
-  where trimAndReverse = reverse . dropWhile isSpace
-
-reverseBreak :: (a -> Bool) -> [a] -> ([a], [a])
-reverseBreak f xs = (reverse before, reverse after)
-  where (after, before) = break f $ reverse xs
-
-wrapLine :: Int -> String -> [String]
-wrapLine maxLen line
-  | length line <= maxLen  = [line]
-  | any isSpace beforeMax  = beforeSpace : (wrapLine maxLen $ afterSpace ++ afterMax)
-  | otherwise              = beforeMax : wrapLine maxLen afterMax
-    where (beforeMax, afterMax) = splitAt maxLen line
-          (beforeSpace, afterSpace) = reverseBreak isSpace beforeMax
-
 
 stringOfSentence :: Sentence -> String
 stringOfSentence (iphrasePairs, mphrase, endMark) =
