@@ -11,5 +11,9 @@ make book_writer
 ## Dependencies
 + Just GHC
 
+## Notes
++ This does not produce a cryptographically secure stream of words
+
 ## Bugs
-+ I wish I had figured out how to wrap lines properly
++ Doesn't wrap lines properly
++ This is fairly slow. It is probably possible to make this significantly faster
