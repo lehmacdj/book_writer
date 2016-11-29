@@ -15,6 +15,7 @@ make book_writer
 + This does not produce a cryptographically secure stream of words
 + The sample novel was line wrapped using vim after it was made. It does not
   accurately represent what this program outputs
++ This project was somewhat influenced by the nano wrimo.
 
 ## Bugs
 + Doesn't wrap lines properly
