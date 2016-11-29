@@ -16,7 +16,8 @@ main = do
     writeFile "novel.txt" $ novel
     return ()
 
-
+-- This code for line wrapping is taken from:
+-- http://moreindirection.blogspot.com/2010/08/blog-post.html
 trim :: String -> String
 trim = trimAndReverse . trimAndReverse
   where trimAndReverse = reverse . dropWhile isSpace
@@ -32,6 +33,7 @@ wrapLine maxLen line
   | otherwise              = beforeMax : wrapLine maxLen afterMax
     where (beforeMax, afterMax) = splitAt maxLen line
           (beforeSpace, afterSpace) = reverseBreak isSpace beforeMax
+
 
 stringOfSentence :: Sentence -> String
 stringOfSentence (iphrasePairs, mphrase, endMark) =
