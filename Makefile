@@ -7,4 +7,4 @@ $(TARGET): book_writer.hs
 
 .PHONY: clean
 clean:
-	rm *.hi *.o $(TARGET)
+	rm *.hi *.o $(TARGET) novel.txt
